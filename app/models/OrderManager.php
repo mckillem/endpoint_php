@@ -12,5 +12,11 @@ class OrderManager
 			JOIN `order_item` on `order`.`order_id` = ?
 			JOIN `item` on `order_item`.`item_id`
 		', array($id));
+
+//		return Db::queryOne('
+//			SELECT *
+//			FROM `order`
+//			WHERE order_id = ?
+//		', array($id));
 	}
 }

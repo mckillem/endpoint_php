@@ -26,11 +26,11 @@ class Db
 		}
 	}
 
-	public static function queryOne(string $query, array $parameters = array()): array|bool
+	public static function queryOne(string $query, array $parameters = array()): array
 	{
 		$statement = self::$connection->prepare($query);
 		$statement->execute($parameters);
 
-		return $statement->fetch();
+		return $statement->fetch(PDO::FETCH_ASSOC);
 	}
 }
