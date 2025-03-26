@@ -2,25 +2,25 @@ CREATE TABLE `order`
 (
     `order_id`       INT(11)      NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `createdAt` date NOT NULL,
-    `title` VARCHAR(255) NOT NULL,
-    `price` smallint(5) NOT NULL,
+    `order_title` VARCHAR(255) NOT NULL,
+    `order_price` smallint(5) NOT NULL,
     `currency` VARCHAR(128) NOT NULL,
     `state` VARCHAR(255) NOT NULL
 ) ENGINE = InnoDB
   CHARSET = utf8;
 
-INSERT INTO `order` (`order_id`, `createdAt`, `title`, `price`, `currency`, `state`)
+INSERT INTO `order` (`order_id`, `createdAt`, `order_title`, `order_price`, `currency`, `state`)
 VALUES (1, '2024-02-28 12:43:15', 'Název objednávky', 1800, 'Kč', 'Hotovo');
 
 CREATE TABLE `item`
 (
        `item_id` int(11) NOT NULL AUTO_INCREMENT,
-       `title` varchar(255) NOT NULL,
-       `price` smallint(5) NOT NULL,
+       `item_title` varchar(255) NOT NULL,
+       `item_price` smallint(5) NOT NULL,
        PRIMARY KEY (`item_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
 
-INSERT INTO `item` (`item_id`, `title`, `price`)
+INSERT INTO `item` (`item_id`, `item_title`, `item_price`)
 VALUES (1,	'stůl', 500),
        (2,	'židle', 300),
        (3,	'skříň', 1000);

@@ -18,7 +18,8 @@ class OrderController extends Controller
 
 	public function getOrderById(array $parameters, OrderManager $orderManager): void
 	{
-//		echo json_encode($orderManager->returnOrder($parameters[1]));
-		var_dump($orderManager->returnOrder($parameters[1]));
+		echo json_encode($orderManager->returnOrder($parameters[1]));
+//		echo $orderManager->returnOrder($parameters[1]);
+//		var_dump($orderManager->returnOrder($parameters[1]));
 	}
 }

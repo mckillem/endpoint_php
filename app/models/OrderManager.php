@@ -10,7 +10,7 @@ class OrderManager
 			SELECT *
 			FROM `order`
 			JOIN `order_item` on `order`.`order_id` = ?
-			JOIN `item` on order_item.item_id = item.item_id
+			JOIN `item` on `order_item`.`item_id`
 		', array($id));
 	}
 }
