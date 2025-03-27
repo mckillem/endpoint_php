@@ -11,14 +11,17 @@ class OrderController extends Controller
 		$api = $_SERVER['REQUEST_METHOD'];
 		$orderManager = new OrderManager();
 
+		$id = $parameters[1];
 		if ($api === 'GET') {
-			$this->getOrderById($parameters, $orderManager);
+			if (!empty($id)) {
+				$this->getOrderById($id, $orderManager);
+			}
 		}
 	}
 
-	public function getOrderById(array $parameters, OrderManager $orderManager): void
+	public function getOrderById(string $id, OrderManager $orderManager): void
 	{
-		echo json_encode($orderManager->returnOrder($parameters[1]));
+		echo json_encode($orderManager->returnOrder($id));
 //		echo $orderManager->returnOrder($parameters[1]);
 //		var_dump($orderManager->returnOrder($parameters[1]));
 	}

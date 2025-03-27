@@ -10,9 +10,13 @@ class RouterController extends Controller
 	{
 		$parsedURL = $this->parseURL($parameters[0]);
 
-		$this->controller = new OrderController();
+		if (!empty($parsedURL)) {
+			if ($parsedURL[0] === "order") {
+				$this->controller = new OrderController();
 
-		$this->controller->process($parsedURL);
+				$this->controller->process($parsedURL);
+			}
+		}
 	}
 
 	private function parseURL(string $url): array
