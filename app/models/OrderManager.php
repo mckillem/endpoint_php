@@ -17,6 +17,7 @@ class OrderManager
 			FROM `order`
 			JOIN `order_item` on `order`.`order_id` = ?
 			JOIN `item` on `order_item`.`item_id`
+			where `order_item`.`item_id` = `item`.`item_id`
 		', array($id));
 	}
 }
