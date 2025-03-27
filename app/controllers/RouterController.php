@@ -10,12 +10,20 @@ class RouterController extends Controller
 	{
 		$parsedURL = $this->parseURL($parameters[0]);
 
-		if (!empty($parsedURL)) {
-			if ($parsedURL[0] === "order") {
-				$this->controller = new OrderController();
+		try {
+			if (!empty($parsedURL)) {
+				if ($parsedURL[0] === "order") {
+					$this->controller = new OrderController();
 
-				$this->controller->process($parsedURL);
+					$this->controller->process($parsedURL);
+				} else {
+					throw new \Exception('Invalid URL');
+				}
+			} else {
+				throw new \Exception('Invalid URL');
 			}
+		} catch (\Exception $e) {
+			echo $e->getMessage();
 		}
 	}
 
